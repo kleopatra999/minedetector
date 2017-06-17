@@ -73,43 +73,43 @@ mine, although we cannot say which one of the other two contains a
 mine.
 
 In general, let's say we have a set N with |N| fields, about which we
-know that it contains at least N~l mines and at most N~u mines. We also
-have a set M with |M| fields, containing at least M~l mines and at most
-M~u mines.
+know that it contains at least N<sub>l</sub> mines and at most
+N<sub>u</sub> mines. We also have a set M with |M| fields, containing
+at least M<sub>l</sub> mines and at most M<sub>u</sub> mines.
 
 We'll first consider the intersection I of the two sets, which
 contains all fields that are both in N as well as in M. How many mines
 does this set contain at a minimum? Assume N contains its minimum
-amount of mines, N~l. Also assume that as many of those mines as
+amount of mines, N<sub>l</sub>. Also assume that as many of those mines as
 possible are in those fields that are not in the intersection set I,
 namely |N| - |I| (that's the number of fields in N but not in I). So, I
-must contain at least N~l - (|N| - |I|) mines. We can use the same argument
-for the set M and arrive at another lower bound of M~l - (|M| - |I|)
+must contain at least N<sub>l</sub> - (|N| - |I|) mines. We can use the same argument
+for the set M and arrive at another lower bound of M<sub>l</sub> - (|M| - |I|)
 mines. Note that both of these numbers could be zero, so our third
 lower bound is 0. The best lower bound we can give, therefore, is the
 largest of these three numbers.
 
 Next we'll see what we can say about the maximum number of mines in
 the set I. One upper bound is the maximum number of mines in N,
-N~u. The other one is M~u. Of course, I cannot contain more mines than
+N<sub>u</sub>. The other one is M<sub>u</sub>. Of course, I cannot contain more mines than
 it contains fields, so the third upper bound is |I|. The best upper
 bound we can give is the lowest of these three numbers.
 
-Having established lower and upper mine bounds I~l and I~u for the
+Having established lower and upper mine bounds I<sub>l</sub> and I<sub>u</sub> for the
 intersection set I, we'll now consider the difference set D = N - M, which
 contains all fields in N which are not in M.
 
 To establish its lower bound, assume that N contains as few mines as
-possible (N~l), and that as many of N's mines as possible are in the
+possible (N<sub>l</sub>), and that as many of N's mines as possible are in the
 intersection I (that's the part of N that is not in D). We know this
 latter number, too, it's Iu, the maximum number of mines in I. That
-gives us a lower bound of N~l - I~u, which can, unfortunately, be
+gives us a lower bound of N<sub>l</sub> - I<sub>u</sub>, which can, unfortunately, be
 negative, so the second lower bound is 0.
 
 We can establish the upper bound very similarly: Assume that N
-contains as many mines as possible (N~u), and that as few mines as
-possible are in the intersection I (I~l), giving an upper bound of
-N~u - I~l, with the other upper bound being |D|, the number of fields in
+contains as many mines as possible (N<sub>u</sub>), and that as few mines as
+possible are in the intersection I (I<sub>l</sub>), giving an upper bound of
+N<sub>u</sub> - I<sub>l</sub>, with the other upper bound being |D|, the number of fields in
 the difference set.
 
 The algorithm my solver uses is this:
